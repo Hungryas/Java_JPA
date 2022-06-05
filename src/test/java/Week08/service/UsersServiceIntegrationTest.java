@@ -1,21 +1,17 @@
 package Week08.service;
 
-import Week08.config.PostgreSQLContainerInitializer;
+import Week08.config.TestConfig;
 import Week08.model.User;
 import Week08.repository.UsersRepository;
 import Week08.service.exception.RequiredFieldMissedException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
 import java.util.UUID;
 
-@SpringBootTest
-@ContextConfiguration(initializers = {PostgreSQLContainerInitializer.class})
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@SpringBootTest(classes = TestConfig.class)
 class UsersServiceIntegrationTest {
     private static final String TEST_USER_ID = "test";
     private static final String TEST_USER_FIRST_NAME = "test";
